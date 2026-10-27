@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Telegram CSS variables (fallbacks for browser testing) */
+  --tg-theme-bg-color: #ffffff;
+  --tg-theme-text-color: #000000;
+  --tg-theme-hint-color: #999999;
+  --tg-theme-link-color: #6C63FF;
+  --tg-theme-button-color: #6C63FF;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-secondary-bg-color: #f4f4f5;
+  --tg-theme-header-bg-color: #ffffff;
+  --tg-theme-accent-text-color: #6C63FF;
+  --tg-theme-section-bg-color: #ffffff;
+  --tg-theme-section-header-text-color: #6d6d71;
+  --tg-theme-subtitle-text-color: #6d6d71;
+  --tg-theme-destructive-text-color: #ef4444;
+  --psymind-accent: #6C63FF;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollable containers */
+.page-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Card styles */
+.card {
+  background-color: var(--tg-theme-secondary-bg-color);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.card-white {
+  background-color: var(--tg-theme-section-bg-color);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--psymind-accent);
+  color: white;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background-color: var(--tg-theme-secondary-bg-color);
+  color: var(--tg-theme-text-color);
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.15s ease;
+}
+
+.btn-secondary:active {
+  opacity: 0.7;
+}
+
+/* Progress bar */
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Hint/subtitle text */
+.text-hint {
+  color: var(--tg-theme-hint-color);
+}
+
+.text-subtitle {
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+.text-accent {
+  color: var(--psymind-accent);
+}
+
+/* Bottom nav safe area */
+.bottom-nav {
+  padding-bottom: env(safe-area-inset-bottom, 8px);
+}
+
+/* Luscher color buttons */
+.color-btn {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.color-btn:active {
+  transform: scale(0.92);
+}
+
+.color-btn.selected {
+  border-color: var(--psymind-accent);
+  transform: scale(1.1);
+}
+
+/* Recharts customization */
+.recharts-wrapper {
+  font-family: 'Inter', sans-serif !important;
+}
