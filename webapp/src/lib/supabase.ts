@@ -1,7 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = (import.meta.env.VITE_SUPABASE_URL as string) || 'https://murqfqctsmvqzoytlbpk.supabase.co';
-const supabaseAnonKey = (import.meta.env.VITE_SUPABASE_ANON_KEY as string) || 'sb_publishable_8TXUkO_T7qh_aQTTec9lbg_HL2pPyJL';
+const FALLBACK_URL = 'https://murqfqctsmvqzoytlbpk.supabase.co';
+const FALLBACK_KEY = 'sb_publishable_8TXUkO_T7qh_aQTTec9lbg_HL2pPyJL';
+
+const rawUrl = (import.meta.env.VITE_SUPABASE_URL as string || '').trim();
+const rawKey = (import.meta.env.VITE_SUPABASE_ANON_KEY as string || '').trim();
+
+const supabaseUrl = (rawUrl.startsWith('https://') && !rawUrl.includes('\n')) ? rawUrl : FALLBACK_URL;
+const supabaseAnonKey = rawKey.length > 10 && !rawKey.includes('\n') ? rawKey : FALLBACK_KEY;
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
