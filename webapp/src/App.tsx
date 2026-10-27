@@ -12,7 +12,7 @@ const App: React.FC = () => {
   return (
     <div
       className="flex flex-col"
-      style={{ height: 'var(--tg-app-height, 100%)', backgroundColor: 'var(--tg-theme-bg-color)' }}
+      style={{ height: '100vh', backgroundColor: 'var(--tg-theme-bg-color)' }}
     >
       {/* Main content area */}
       <div className="flex-1 overflow-hidden">
