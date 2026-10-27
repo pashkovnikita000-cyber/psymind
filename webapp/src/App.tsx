@@ -12,10 +12,10 @@ const App: React.FC = () => {
   return (
     <div
       className="flex flex-col"
-      style={{ height: '100vh', backgroundColor: 'var(--tg-theme-bg-color)' }}
+      style={{ height: '100%', minHeight: '100vh', backgroundColor: 'var(--tg-theme-bg-color)' }}
     >
       {/* Main content area */}
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1" style={{ overflow: 'auto' }}>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/catalog" element={<TestCatalog />} />
