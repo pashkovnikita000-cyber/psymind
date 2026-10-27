@@ -16,6 +16,10 @@
   </head>
   <body>
     <div id="root"><div style="padding:20px;color:#333;background:#ffe066;min-height:100vh;font-family:sans-serif;font-size:18px;font-weight:bold">⏳ Loading PsyMind... (JS not loaded yet)</div></div>
+    <script>
+      // inline non-module script — runs before anything else
+      document.getElementById('root').children[0].textContent = '⚙️ Inline script OK — waiting for module...';
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
