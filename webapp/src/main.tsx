@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 import { ErrorBoundary } from './ErrorBoundary';
 import './index.css';
@@ -12,9 +12,9 @@ initTelegramWebApp();
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <HashRouter>
+      <MemoryRouter initialEntries={['/']} initialIndex={0}>
         <App />
-      </HashRouter>
+      </MemoryRouter>
     </ErrorBoundary>
   </React.StrictMode>,
 );
