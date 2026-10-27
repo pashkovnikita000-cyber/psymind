@@ -140,6 +140,14 @@ export function initTelegramWebApp(): void {
   twa.ready();
   twa.expand();
 
+  // Set viewport height CSS var (fixes 0-height bug in Telegram dark theme)
+  const setVh = () => {
+    const vh = twa.viewportStableHeight || window.innerHeight;
+    document.documentElement.style.setProperty('--tg-app-height', `${vh}px`);
+  };
+  setVh();
+  twa.onEvent('viewportChanged', setVh);
+
   // Apply Telegram theme to CSS vars
   const tp = twa.themeParams;
   const root = document.documentElement;
